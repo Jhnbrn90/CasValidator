@@ -1,0 +1,32 @@
+{
+    "name": "jhnbrn90/cas-validator",
+    "description": "Parse and validate a given CAS number",
+    "type": "library",
+    "require": {
+        "php": ">=8.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Jhnbrn90\\CasValidator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jhnbrn90\\CasValidator\\Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "John Braun",
+            "email": "john@brn.email"
+        }
+    ],
+    "scripts": {
+        "test": "vendor/bin/phpunit .",
+        "test-f": "vendor/bin/phpunit . --filter="
+    }
+}
