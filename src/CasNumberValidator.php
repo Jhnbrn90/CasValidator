@@ -10,6 +10,9 @@ class CasNumberValidator
 {
     public static function validate(string $casNumber): ValidatedCasNumberInterface 
     {
+        if (!preg_match('/^[1-9][0-9]{1,6}-[0-9]{2}-[0-9]$/', $casNumber)) {
+            return new InvalidCasNumber($casNumber);
+        }
         $parsedCasNumber = preg_replace("/-/", "", $casNumber);
         $parsedCasNumberArray = array_map('intval', str_split($parsedCasNumber));
         

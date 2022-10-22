@@ -52,6 +52,7 @@ class CasValidatorTest extends TestCase
     
     public function InvalidCasNumbersProvider(): \Generator
     {
+        yield "invalid format" => ['67641'];
         yield "invalid acetone" => ['67-62-1'];
         yield "invalid benzyl bromide" => ['100-39-2'];
         yield "invalid iso-propanol" => ['67-62-0'];
