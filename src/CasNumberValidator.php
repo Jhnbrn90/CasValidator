@@ -13,14 +13,9 @@ class CasNumberValidator
         if (!preg_match('/^[1-9][0-9]{1,6}-[0-9]{2}-[0-9]$/', $casNumber)) {
             return new InvalidCasNumber($casNumber);
         }
+        
         $parsedCasNumber = preg_replace("/-/", "", $casNumber);
         $parsedCasNumberArray = array_map('intval', str_split($parsedCasNumber));
-        
-        if ($parsedCasNumberArray[0] === 0) {
-            // Do not allow zero (0) left padded CAS-numbers
-            // Force '100-39-0' over '000100-39-0'
-            return new InvalidCasNumber($casNumber);
-        }
         
         $checkDigit = array_pop($parsedCasNumberArray);
         
